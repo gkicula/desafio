@@ -1,0 +1,27 @@
+<p>produto works!</p>
+<form nz-form [formGroup]="form">
+    <div nz-row nzGutter="16">
+        <div nz-col nzMd="12" nzSm="8" nzXs="6" nzLg="10">
+            <nz-form-label nzRequired>Produto</nz-form-label>
+            <nz-form-item>
+                <input nz-input formControlName="nome" placeholder="Descrição do produto" type="text" />
+            </nz-form-item>
+
+            <nz-form-label nzRequired>Preço do Produto</nz-form-label>
+            <nz-form-item>
+                <nz-input-number
+                [nzMin]="1"
+                [nzMax]="100"
+                [nzStep]="1"
+                [nzFormatter]="formatterReal"
+                [nzParser]="parserReal"></nz-input-number>
+            </nz-form-item>
+
+
+        </div>
+
+    </div>
+
+</form>
+
+<button nz-button type="submit" (click)="save(form.value)">Salvar</button>
